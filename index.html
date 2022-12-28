@@ -55,6 +55,127 @@
 
   
     
+    <h3 class="article-title"><a href="/2022/12/27/Investment-contract/"><span>Investment contract</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2022/12/27/Investment-contract/" rel="bookmark">
+        <time class="entry-date published" datetime="2022-12-27T03:26:07.000Z">
+          2022-12-27
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>为了达成上述革命，首先需要解决欠发达地区的穷人创业资金的问题， 大体思路就是 大家都有工作， 除了吃穿住行之外 其实每年下来还有一点点积蓄。</p>
+<p>假设 一个人老年人60岁，工作一个月6千块，其中五千块钱用于生活 剩下的工资 可以用于投资，可是一万块钱 做任何生意都无法达成实际行动，实际上随着竞争的激烈 一个月的广告费用就不止一万。</p>
+<p>但是可以通过几个人合作，比如亲戚朋友每个人都出一万元，大家投资的时候通过工具共同投票，占比超过8层即可执行，十万资金就已经具备有一定可行性。</p>
+<p>也就是说不出三年即可成型 实现一个 除了工作之外的 额外 产生出来的经济来源。</p>
+<p>但是每个人理解可能不一样，需要大家共同签字，形成协议并且不可以变更这个协议，该合约最终可以用做法律依据。</p>
+<h2 id="投资合约主要框架"><a href="#投资合约主要框架" class="headerlink" title="投资合约主要框架"></a>投资合约主要框架</h2><ol>
+<li><p>遵从协议每个月投入的问题？</p>
+</li>
+<li><p>总的投入资金需要购买设备取钱的问题？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// solidity 语法</span></span><br><span class="line"><span class="comment">// for loop</span></span><br><span class="line"><span class="comment">// [a,b,c,d]</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">withdraw</span>(<span class="params"></span>) public &#123;</span><br><span class="line">  <span class="comment">/*starting index, ending index setp amount*/</span></span><br><span class="line">  <span class="comment">// 0, 10 ,2  =&gt; 2,4,6,8,10</span></span><br><span class="line">  <span class="keyword">for</span> (uint256 funderInder = <span class="number">0</span>; funderIndex &lt; funders.<span class="property">length</span>; funderIndex = funderIndex + <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="comment">// code</span></span><br><span class="line">    address funders[funderIndex];</span><br><span class="line">    addressToAmountFunded[funder] = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  funders = <span class="keyword">new</span> address[](<span class="number">0</span>);</span><br><span class="line">  <span class="comment">// actually withdraw the funds</span></span><br><span class="line">  <span class="comment">// transfer</span></span><br><span class="line">    <span class="title function_">payable</span>(msg.<span class="property">sender</span>).<span class="title function_">transfer</span>(<span class="title function_">address</span>(<span class="variable language_">this</span>).<span class="property">balance</span>);</span><br><span class="line">  <span class="comment">// send</span></span><br><span class="line">	bool sendSuccess = <span class="title function_">payable</span>(msg.<span class="property">sender</span>).<span class="title function_">send</span>(<span class="title function_">address</span>(<span class="variable language_">this</span>).<span class="property">balance</span>);</span><br><span class="line">  <span class="built_in">require</span>(sendSuccess, <span class="string">&quot;send faild&quot;</span>);</span><br><span class="line">  <span class="comment">// call</span></span><br><span class="line">  (bool callSuccess, bytes memory dataReturned) = <span class="title function_">payable</span>(msg.<span class="property">sender</span>).<span class="property">call</span>&#123;<span class="attr">value</span>:<span class="title function_">address</span>(<span class="variable language_">this</span>).<span class="property">balance</span>&#125;(<span class="string">&quot;&quot;</span>);</span><br><span class="line">  <span class="built_in">require</span>(callSuccess, <span class="string">&quot;call failed&quot;</span>);</span><br><span class="line">  <span class="comment">// msg.sender = address</span></span><br><span class="line">  <span class="comment">// payable(msg.sender) = payable address</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>想要撤资的问题？</p>
+</li>
+<li><p>协议部署后谁部署资金池归谁的问题？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// solidity 语法</span></span><br><span class="line"><span class="comment">// address public owner</span></span><br><span class="line"></span><br><span class="line"><span class="title function_">consructor</span>(<span class="params"></span>)&#123;</span><br><span class="line">  owner = msg.<span class="property">sender</span>;</span><br><span class="line">&#125;</span><br><span class="line">modifier onlyOwner &#123;</span><br><span class="line">  <span class="comment">// _ _; 先运行其他代码再运行 require</span></span><br><span class="line">  <span class="built_in">require</span>(msg.<span class="property">sender</span> == owner, <span class="string">&quot;sender is not owner&quot;</span>);</span><br><span class="line">  </span><br><span class="line">  __;<span class="comment">// 先运行 require 后运行其余代码</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>投资人新加入的问题？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// docs.soliditylang.org/en/v0.8.11/units-and-global-variables.html</span></span><br><span class="line">address[] public funders</span><br><span class="line"><span class="comment">// msg.sender  </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// receive</span></span><br><span class="line"><span class="comment">// fallback</span></span><br><span class="line"></span><br><span class="line">pragma solidity ^<span class="number">0.8</span><span class="number">.7</span></span><br><span class="line">contrac <span class="title class_">FallbackExample</span> &#123;</span><br><span class="line">  uint256 public result;</span><br><span class="line">  <span class="title function_">reeive</span>() external payable &#123;</span><br><span class="line">    result = <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>资金转换问题？ </p>
+<p>chinalink 也是去中心化的 预言机、因为区块链是脱离现实世界的，而且每一个国家的货币政策是实时变动的，不能依靠一个国家一个链为准则，需要有一个去中心化的网络算很多子网的平均数，方便确定资产价格或者指定符合规则的去中心化接口，并对相关的事件进行监听，触发内部chainlink 方法去更新区块链。</p>
+</li>
+</ol>
+<h3 id="乱码代码题目测试"><a href="#乱码代码题目测试" class="headerlink" title="乱码代码题目测试"></a>乱码代码题目测试</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 抓狂的乱码</span></span><br><span class="line"><span class="comment">// !-U-.-Ni-!-X-:-33-66-100-1-!-a-b-c-1-2-3-:-26-6-.-j-:-37-74-!-d-.-b-:-1-31-34-24-4-37</span></span><br><span class="line"><span class="comment">// - 划段</span></span><br><span class="line"><span class="comment">// . 把每个段添加到结果中</span></span><br><span class="line"><span class="comment">// ：把每两个数字相加成为一个结果</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ! 跳过</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">main</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> scrambString = <span class="string">&quot;!-U-.-Ni-!-X-:-33-66-100-1-!-a-b-c-1-2-3-:-26-6-.-j-:-37-74-!-d-.-b-:-1-31-34-24-4-37&quot;</span>;</span><br><span class="line">    <span class="keyword">let</span> scrambArray = scrambString.<span class="title function_">split</span>(<span class="string">&#x27;-&#x27;</span>);</span><br><span class="line">    <span class="keyword">let</span> scrambResult = <span class="string">&quot;&quot;</span>; <span class="comment">// 结果以字符串形式</span></span><br><span class="line">    <span class="keyword">let</span> resultArr = []; <span class="comment">// 结果以 数组形式</span></span><br><span class="line">    <span class="keyword">let</span> plusAcc = []; <span class="comment">// 累加器</span></span><br><span class="line">    <span class="keyword">let</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> plusStats = <span class="literal">false</span>; <span class="comment">// 累加范围</span></span><br><span class="line">    scrambArray.<span class="title function_">forEach</span>(<span class="function">(<span class="params">item,index,array</span>)=&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (item == <span class="string">&#x27;!&#x27;</span>) &#123;</span><br><span class="line">        scrambResult += <span class="title function_">skipFun</span>();</span><br><span class="line">        plusStats = <span class="literal">false</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (item == <span class="string">&#x27;.&#x27;</span>) &#123;</span><br><span class="line">            scrambResult += <span class="title function_">addString</span>(index,array)</span><br><span class="line">        	plusStats = <span class="literal">false</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (item == <span class="string">&#x27;:&#x27;</span>) &#123;</span><br><span class="line">        <span class="comment">//     // 遇到 !. 中断循环</span></span><br><span class="line">        <span class="comment">//     //-33-66-100-1-!</span></span><br><span class="line">        <span class="comment">//     // -26-6- .</span></span><br><span class="line">        <span class="comment">//     // 插在当前：index </span></span><br><span class="line">        <span class="comment">//     // 开启计算状态</span></span><br><span class="line">        <span class="comment">// set plus number state</span></span><br><span class="line">        plusStats = <span class="literal">true</span>;</span><br><span class="line">  </span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(plusStats==<span class="literal">true</span>)&#123;</span><br><span class="line">            <span class="comment">// two number plus</span></span><br><span class="line">            scrambResult += <span class="title function_">plusNumber</span>(plusAcc,index,array);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (array[index-<span class="number">1</span>]==<span class="string">&#x27;.&#x27;</span> || array[index+<span class="number">1</span>]==<span class="string">&#x27;.&#x27;</span> ) &#123;</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// console.log(&#x27;other:&#x27;+array[index] + plusStats + array[index+1] );</span></span><br><span class="line">            scrambResult +=array[index];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line">    resultArr = scrambResult.<span class="title function_">split</span>(<span class="string">&#x27;xxx&#x27;</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(resultArr.<span class="title function_">filter</span>(<span class="function">(<span class="params">item</span>)=&gt;</span>item !=<span class="string">&#x27;&#x27;</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">skipFun</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;xxx&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">addString</span>(<span class="params">index,array</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> prev = array[index-<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">let</span> next = array[index+<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">return</span> prev+next;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">plusNumber</span>(<span class="params">plusAcc,index,array</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> tempIndex = index;</span><br><span class="line">    <span class="keyword">let</span> tempArray = array;</span><br><span class="line">    <span class="keyword">let</span> resultTemp = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    plusAcc.<span class="title function_">push</span>(tempArray[tempIndex]);</span><br><span class="line">    <span class="comment">// console.log(plusAcc.length + &#x27;---&#x27; + tempArray[tempIndex]);</span></span><br><span class="line">    <span class="keyword">if</span>(plusAcc.<span class="property">length</span>==<span class="number">2</span>)&#123;</span><br><span class="line">        <span class="comment">// two number plus</span></span><br><span class="line">        resultTemp = (plusAcc[<span class="number">0</span>]*<span class="number">1</span>+plusAcc[<span class="number">1</span>]*<span class="number">1</span>);</span><br><span class="line">        <span class="comment">// plusAcc = [];</span></span><br><span class="line">        plusAcc.<span class="title function_">pop</span>(); <span class="comment">// plus two number; [1,2] to push to scrambResult[count];</span></span><br><span class="line">        plusAcc.<span class="title function_">pop</span>(); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// console.log(resultTemp)</span></span><br><span class="line">    <span class="keyword">return</span> resultTemp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">main</span>();</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2022/12/27/culture/"><span>culture</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2022/12/27/culture/" rel="bookmark">
+        <time class="entry-date published" datetime="2022-12-27T03:24:34.000Z">
+          2022-12-27
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
     <h3 class="article-title"><a href="/2022/12/15/revolution/"><span>revolution</span></a></h3>
     
   
